@@ -22,7 +22,19 @@ set address {name} description {description}
 {# xpath ./devices/entry/vsys/entry/address-group}
 {.section address-group}
   {.repeated section entry}
+    {.section member}
 set address-group {name} {member|list}
+    {.end}
+{# PAN-OS 6.0}
+    {.section dynamic}
+set address-group {name} dynamic filter {filter}
+    {.end}
+    {.section static}
+set address-group {name} static {member|list}
+    {.end}
+    {.section description}
+set address-group {name} description {description}
+    {.end}
   {.end}
 {.or}
 # No address-group entries
