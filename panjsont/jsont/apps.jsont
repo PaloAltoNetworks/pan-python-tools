@@ -1,0 +1,6 @@
+{# use output from: $ panxapi.py -rxg /config/predefined/application}
+{.section application}
+  {.repeated section entry}
+{id} {name} {risk} {category} {.subcategory?}{subcategory}{.or}_nosubcategory_{.end}
+  {.end}
+{.end}

@@ -1,0 +1,29 @@
+default-formatter: c14n
+
+{# xpath ./devices/entry/vsys/entry/address}
+{.section address}
+  {.repeated section entry}
+     {.section ip-netmask}
+set address {name} ip-netmask {ip-netmask}
+     {.end}
+     {.section fqdn}
+set address {name} fqdn {fqdn}
+     {.end}
+     {.section ip-range}
+set address {name} ip-range {ip-range}
+     {.end}
+     {.section description}
+set address {name} description {description}
+     {.end}
+  {.end}
+{.or}
+# No address entries
+{.end}
+{# xpath ./devices/entry/vsys/entry/address-group}
+{.section address-group}
+  {.repeated section entry}
+set address-group {name} {member|list}
+  {.end}
+{.or}
+# No address-group entries
+{.end}

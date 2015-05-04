@@ -1,0 +1,9 @@
+{# use output from: $ panxapi.py -rxg /config/devices/entry/platform/limits}
+PAN-OS platform limits
+----------------------
+
+{.section limits}
+  {.repeated section @|pairs}
+{@key} = {@value}
+  {.end}
+{.end}

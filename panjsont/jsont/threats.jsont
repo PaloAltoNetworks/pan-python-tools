@@ -1,0 +1,18 @@
+{# use output from: $ panxapi.py -rxg /config/predefined/threats}
+{.section threats}
+  {.section phone-home}
+    {.repeated section entry}
+phone-home {name} "{threatname}" {category} {severity} {default-action}
+    {.end}
+  {.end}
+  {.section scan}
+    {.repeated section entry}
+scan {id} "{name}" {severity}
+    {.end}
+  {.end}
+  {.section vulnerability}
+    {.repeated section entry}
+vulnerability {name} "{threatname}" {category} {severity} {.default-action?}{default-action}{.or}_no-default-action_{.end}
+    {.end}
+  {.end}
+{.end}

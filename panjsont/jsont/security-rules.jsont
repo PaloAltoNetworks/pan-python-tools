@@ -1,0 +1,81 @@
+default-formatter: c14n
+
+{# xpath ./devices/entry/vsys/entry/rulebase/security/rules}
+{.section rules}
+  {.repeated section entry}
+    {.section disabled}
+security rules {name} disabled {disabled|yesno}
+    {.end}
+    {.section tag}
+security rules {name} tag {tag}
+    {.end}
+    {.section from}
+security rules {name} from {from.member|list}
+    {.end}
+    {.section to}
+security rules {name} to {to.member|list}
+    {.end}
+    {.section source}
+security rules {name} source {.negate-source?}!{.end}{source.member|list}
+    {.end}
+    {.section source-user}
+security rules {name} source-user {source-user.member|list}
+    {.end}
+    {.section destination}
+security rules {name} destination {.negate-destination?}!{.end}{destination.member|list}
+    {.end}
+    {.section service}
+security rules {name} service {service.member|list}
+    {.end}
+    {.section hip-profiles}
+security rules {name} hip-profiles {hip-profiles.member|list}
+    {.end}
+    {.section application}
+security rules {name} application {application.member|list}
+    {.end}
+    {.section category}
+security rules {name} category {category.member|list}
+    {.end}
+    {.section action}
+security rules {name} action {action}
+    {.end}
+    {.section option}
+security rules {name} option {option|dict}
+    {.end}
+    {.section profile-setting}
+      {.section profiles}
+        {.section virus}
+security rules {name} profile-setting profiles virus {virus.member|list}
+	{.end}
+        {.section url-filtering}
+security rules {name} profile-setting profiles url-filtering {url-filtering.member|list}
+	{.end}
+        {.section spyware}
+security rules {name} profile-setting profiles spyware {spyware.member|list}
+	{.end}
+        {.section vulnerability}
+security rules {name} profile-setting profiles vulnerability {vulnerability.member|list}
+	{.end}
+      {.end}
+    {.end}
+    {.section log-start}
+security rules {name} log-start {log-start|yesno}
+    {.end}
+    {.section log-end}
+security rules {name} log-end {log-end|yesno}
+    {.end}
+    {.section log-setting}
+security rules {name} log-setting {log-setting|yesno}
+    {.end}
+    {.section description}
+security rules {name} description {description}
+    {.end}
+    {.section schedule}
+security rules {name} schedule {schedule}
+    {.end}
+    {.alternates with}
+
+  {.end}
+{.or}
+No security rules.
+{.end}
