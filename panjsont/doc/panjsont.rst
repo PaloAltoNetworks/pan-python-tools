@@ -317,3 +317,5 @@ AUTHORS
 =======
 
  Kevin Steves <kevin.steves@pobox.com>
+
+ json-template was written by Andy Chu.
