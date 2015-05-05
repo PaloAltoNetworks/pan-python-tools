@@ -281,7 +281,7 @@ EXAMPLES
   max-qos-policy-rule = 100
   [...]
 
- Display apps.jsont template.
+ Display platform-limits.jsont template.
  ::
 
   $ cat ../jsont/platform-limits.jsont 
