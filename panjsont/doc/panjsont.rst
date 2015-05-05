@@ -235,6 +235,7 @@ EXAMPLES
 
   $ panxapi.py -t pa-200 -rjg /config/predefined/application |
   > panjsont.py --jt ../jsont/apps.jsont --json -
+  get: success [code="19"]
   120 100bao 5 general-internet file-sharing
   1402 1und1-mail 3 collaboration email
   781 2ch 2 collaboration social-networking
@@ -243,6 +244,7 @@ EXAMPLES
   350 3pc 1 networking ip-protocol
   572 4shared 4 general-internet file-sharing
   1385 51.com-base 2 collaboration social-networking
+  [...]
 
  Display apps.jsont template.
  ::
@@ -252,6 +254,44 @@ EXAMPLES
   {.section application}
     {.repeated section entry}
   {id} {name} {risk} {category} {.subcategory?}{subcategory}{.or}_nosubcategory_{.end}
+    {.end}
+  {.end}
+
+ Print device platform limits.
+ ::
+
+  $ panxapi.py -t pa-200 -rjg /config/devices/entry/platform/limits |
+  > panjsont.py --json - --jt ../jsont/platform-limits.jsont
+  get: success [code="19"]
+  PAN-OS platform limits
+  ----------------------
+
+  base-vsys = 1
+  licensed-vsys = 1
+  max-address = 2500
+  max-address-group = 250
+  max-address-per-group = 500
+  max-aeqosnet = 256
+  max-cp-policy-rule = 100
+  max-dos-policy-rule = 100
+  max-nat-policy-rule = 160
+  max-oride-policy-rule = 100
+  max-pbf-policy-rule = 100
+  max-policy-rule = 250
+  max-qos-policy-rule = 100
+  [...]
+
+ Display apps.jsont template.
+ ::
+
+  $ cat ../jsont/platform-limits.jsont 
+  {# use output from: $ panxapi.py -rxg /config/devices/entry/platform/limits}
+  PAN-OS platform limits
+  ----------------------
+
+  {.section limits}
+    {.repeated section @|pairs}
+  {@key} = {@value}
     {.end}
   {.end}
 
