@@ -229,12 +229,12 @@ EXAMPLES
   # No address-group entries
   {.end}
 
- Print predefined applications using **panxapi.py**, **panconf.py** and
+ Print predefined applications using **panxapi.py** and
  **panjsont.py** in a pipeline.
  ::
 
-  $ panxapi.py -t pa-200 -rxg /config/predefined/application |
-  > panconf.py --config - --json | panjsont.py --jt ../jsont/apps.jsont --json -
+  $ panxapi.py -t pa-200 -rjg /config/predefined/application |
+  > panjsont.py --jt ../jsont/apps.jsont --json -
   120 100bao 5 general-internet file-sharing
   1402 1und1-mail 3 collaboration email
   781 2ch 2 collaboration social-networking
