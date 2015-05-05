@@ -42,7 +42,12 @@ def main():
 
     template = read_file(options['json_template'])
     json_object = read_file(options['json'])
-    json_dict = json.loads(json_object)
+    try:
+        json_dict = json.loads(json_object)
+    except ValueError as e:
+        print('Invalid JSON: %s' % e, file=sys.stderr)
+        sys.exit(1)
+
     if options['debug']:
         print(template, end='', file=sys.stderr)
         print(json_object, end='', file=sys.stderr)
